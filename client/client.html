@@ -1,0 +1,57 @@
+<head>
+    <title>Chat app</title>
+</head>
+
+<body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Chat App</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li>
+              <a href="{{pathFor 'chatapp'}}">Show Chatapp</a>
+          </li>
+          <li>
+              <a href="{{pathFor 'kitchensink'}}">Show Sink</a>
+          </li>
+          <li class="login-links">{{> loginButtons align="right"}}</li>
+        </ul>
+      </section>
+    </nav>
+</body>
+
+<template name="chatapp">
+    <div class="row">
+        <div class="small-9 columns">
+            <h1>Chatapp</h1>
+        </div>
+        <div class="small-3 columns">
+            {{> welcome }}
+            {{> input }}
+            {{> messages }}
+        </div>
+    </div>
+</template>
+<template name="welcome">
+    <p>Welcome to my awesome example app! Please login to see your username.</p>
+</template>
+<template name="input">
+  <p>Message: <input type="text" id="message"></p>
+</template>
+<template name="messages">
+  {{#each messages}}
+    <strong>{{name}}:</strong> {{message}}<br>
+  {{/each}}
+</template>
+<template name="kitchensink">
+     <div class="row">
+        <div class="small-12 columns">
+            {{> kitchensink }}
+        </div>
+    </div>
+</template>
